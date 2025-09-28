@@ -3,7 +3,7 @@
 ### Set up virtual environment
 ```
 python3 -m venv ./venv
-source ./venv/bin/python
+source ./venv/bin/activate
 pip install -r requirements.txt
 ```
 
