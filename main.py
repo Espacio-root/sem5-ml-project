@@ -125,8 +125,11 @@ def check_jpg(df: pd.DataFrame) -> pd.DataFrame:
     bad_file_paths = []
     for img in df["file_path"]:
         if not (img.endswith(".jpg") or img.endswith(".png") or img.endswith(".jpeg")) or not os.path.exists(img):
-            print(img)
             bad_file_paths.append(img)
+        else:
+            (hx,wx) = Image.open(img).size
+            if (hx!=wx):
+                bad_file_paths.append(img)
     print(f"{len(bad_file_paths)} paths found to have bad file paths")
 
     df_res = df[~df["file_path"].isin(bad_file_paths)]
@@ -144,6 +147,7 @@ r"""°°°
 #|%%--%%| <es7HuEMlRY|3FJuiRvwEj>
 
 df.to_csv(rf"{data_path}/trash.csv")
+df["is_organic"].value_counts()
 
 #|%%--%%| <3FJuiRvwEj|R3p4KuPHkX>
 r"""°°°
@@ -269,3 +273,4 @@ with torch.no_grad():
 
 accuracy = correct / total
 print(f"Baseline test accuracy: {accuracy*100:.2f}%")
+torch.save(model.state_dict(), os.path.join(os.getcwd(),"best_models",f"model_{accuracy*100:.2f}.pth"))
