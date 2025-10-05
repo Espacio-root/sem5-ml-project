@@ -1,0 +1,22 @@
+# Core
+numpy
+pandas
+matplotlib
+seaborn
+tqdm
+Pillow
+joblib
+
+# PyTorch and Torchvision
+torch
+torchvision
+torchaudio  # optional but usually installed with torch
+
+# Machine Learning
+scikit-learn
+xgboost
+lightgbm
+optuna
+
+# (Optional) for development convenience
+typing-extensions

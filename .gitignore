@@ -1,4 +1,8 @@
 data/*
 .ipynb_checkpoints/
 .jukit/
-*.py
+preprocess.py
+feature_extraction.py
+lightgbm_model.py
+random_forest_model.py
+xgboost_model.py
